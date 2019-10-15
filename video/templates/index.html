@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <title>影擒 - 专业的影视擒拿手</title>
+</head>
+<body>
+<div>
+    <div class="containers">
+        <div class="banner">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/">影擒，专业的影视擒拿手</a>
+                    </div>
+
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="desc">本网站只是个影视搜索引擎，仅供个人学习交流，不提供播放功能，播放链接为第三方视频连接，不提供视频资源，资源来自于互联网</li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+
+        <div class="content clearfix">
+            <h5>数据由程序智能自动获取，搜索结果不可控，如结果内含广告，请勿轻信，谨防上当受骗</h5>
+            <div class="content-inner">
+                <div class="search">
+                    <div class="input-group text-center input-group-lg">
+                        <input type="text" class="form-control" placeholder="请输入影视名" name="name" value="" id="keyword">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button" id="search">搜索</button>
+                        </span>
+                    </div><!-- /input-group -->
+                </div>
+            </div>
+
+
+        </div>
+        <div class="result ">
+            <div>
+                <div class="res-item">
+
+                </div>
+
+            </div>
+        </div>
+        <!--
+        <div class="footer" id="footer">
+            <div class="footer-inner">
+                <p>
+                    <a href="#" target="_blank">沪网文［2019］xxx-xxx号</a>&nbsp;&nbsp;沪ICP备xxxx号-x&nbsp;&nbsp;
+                    <a href="#" target="_blank">新出网证（沪）字xxx号</a>&nbsp;&nbsp;
+
+                </p>
+            </div>
+        </div>
+        -->
+    </div>
+
+</div>
+</body>
+<style>
+    body {
+        font-family: "Microsoft YaHei", Arial, "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, sans-serif;
+    }
+
+    .banner {
+        position: fixed;
+        z-index: 99999;
+        width: 100%;
+        top: 0px;
+    }
+
+    .containers {
+        position: relative;
+    }
+
+    #footer {
+        width: 100%;
+        position: absolute;
+        padding: 30px 0;
+        background: #2e3137;
+    }
+
+    .content {
+        width: 100%;
+        margin-top: 15%;
+    }
+
+    .content-inner {
+        text-align: center;
+        width: 620px;
+        margin: 0 auto;
+    }
+
+    .search {
+        padding: 5%;
+        margin: 0 8%;
+    }
+
+    .footer p {
+        color: #999;
+        text-align: center;
+        line-height: 24px;
+    }
+
+    .result {
+        width: 60%;
+        margin: 2% auto;
+        text-align: center;
+    }
+
+    .desc {
+        padding: 15px 15px;
+        color: #f85506;
+    }
+
+    .content > h5 {
+        text-align: center;
+        color: grey;
+        font-weight: bold;
+    }
+
+    .items h4, .items h5 {
+        text-align: left;
+    }
+
+    .btn {
+        margin: 0 2px;
+    }
+
+    .btn a {
+        color: white;
+    }
+
+    .row {
+        border: 1px solid #f1f1f1;
+        padding: 2%;
+        box-shadow: 0px 0px 5px 1px #cdcdcd;
+        border-radius: 8px;
+        margin-bottom: 4%;
+    }
+
+    .info {
+        margin: 3% 0;
+        letter-spacing: 0.1em;
+    }
+
+    .outer-links {
+        position: relative;
+    }
+
+    .links {
+        top: 0px;
+        left: 14%;
+        text-align: left;
+    }
+
+    .links .btn {
+        margin-bottom: 5px;
+    }
+</style>
+
+<script type="text/javascript">
+
+
+    $(function () {
+        var m3u8parse = ['https://www.douban888.com/m3u8.php?url=', 'https://api.927jx.com/vip/?url=', 'http://www.wocao.xyz/index.php?url=', 'http://okjx.cc/?url=', 'http://jx.618g.com/?url=', 'https://www.8090g.cn/?url=', 'http://cn.bjbanshan.cn/jx.php?url=', 'http://v.d9y.net/vip/?url=', 'https://jx.000180.top/jx/?url=', 'https://jx.inpower.cc/?url='];
+
+        function urlCrypt(values) {
+            var str2 = '';
+            var temp_str = values.toString().split('://');
+            var str3 = temp_str[0];
+            var str = temp_str[1];
+            str2 += str3 + '://'
+            for (i = 0; i < str.length; i++) {
+                if (str.charCodeAt(i) == '47') str2 += '/';
+                else if (str.charCodeAt(i) == '63') str2 += '?';
+                else if (str.charCodeAt(i) == '38') str2 += '&';
+                else if (str.charCodeAt(i) == '61') str2 += '=';
+                else if (str.charCodeAt(i) == '58') str2 += ':';
+                else str2 += '%' + str.charCodeAt(i).toString(16);
+            }
+            return str2
+        }
+
+        function ClickEevent() {
+            var keyword = $('#keyword').val();
+            //
+            $.ajax({
+                //请求方式
+                type: "POST",
+                url: "/api/v1/video",
+                //数据，json字符串
+                data: {
+                    'name': keyword
+                },
+                //请求成功
+                success: function (result) {
+                    if (result.code == 202) {
+                        let html = `<span style="color:red;">${result.data}</span>`;
+                        $('.res-item').html(html)
+                    } else {
+                        let html = '';
+                        $.each(result.data, function (i, item) {
+                            var m3u8 = '';
+                            var online = '';
+                            var xunlei = '';
+                            var m3u8_link = eval(item.m3u8_link);
+                            var online_link = eval(item.online_link);
+                            var xunlei_link = eval(item.xunlei_link);
+                            $.each(m3u8_link, function (j, innerItem) {
+                                let infos = '';
+                                if (typeof innerItem == 'object') {
+                                    for (let link in innerItem) {
+                                        let name = Object.keys(innerItem[link]);
+                                        let value = innerItem[link][name];
+                                        let rand = Math.floor((Math.random() * m3u8parse.length));
+                                        let m3u8_url = m3u8parse[rand];
+                                        value = m3u8_url + value;
+                                        infos += `<a href="${value}" target="_blank" class="btn btn-sm btn-danger">
+                                                    <span class="glyphicon glyphicon-expand"></span>${name}
+                                                  </a>`
+                                    }
+                                    if (innerItem.length >= 15) {
+                                        infos += '<br><hr>';
+                                    }
+                                } else {
+                                    $.each(innerItem, function (k, smallItem) {
+                                        for (let link in smallItem) {
+                                            let name = Object.keys(innerItem[link]);
+                                            let value = innerItem[link][name];
+                                            let rand = Math.floor((Math.random() * m3u8parse.length));
+                                            let m3u8_url = m3u8parse[rand];
+                                            value = m3u8_url + value;
+                                            infos += `<a href="${value}" target="_blank" class="btn btn-sm btn-danger">
+                                                    <span class="glyphicon glyphicon-expand"></span>${name}
+                                                  </a>`
+                                        }
+                                        if (innerItem.length >= 15) {
+                                            infos += '<br><hr>';
+                                        }
+                                    })
+                                }
+                                m3u8 += `${infos}`
+                            });
+
+                            $.each(online_link, function (j, innerItem) {
+                                let infos = '';
+                                if (typeof innerItem == 'object') {
+                                    for (let link in innerItem) {
+                                        let name = Object.keys(innerItem[link]);
+                                        let value = innerItem[link][name];
+                                        value = urlCrypt(value);
+                                        infos += `<a href="${value}" target="_blank" class="btn btn-sm btn-danger">
+                                                    <span class="glyphicon glyphicon-expand"></span>${name}
+                                                  </a>`
+                                    }
+                                    if (innerItem.length >= 15) {
+                                        infos += '<br><hr>';
+                                    }
+                                } else {
+                                    $.each(innerItem, function (k, smallItem) {
+                                        for (let link in smallItem) {
+                                            let name = Object.keys(innerItem[link]);
+                                            let value = innerItem[link][name];
+                                            value = urlCrypt(value);
+                                            infos += `<a href="${value}" target="_blank" class="btn btn-sm btn-danger">
+                                                    <span class="glyphicon glyphicon-expand"></span>${name}
+                                                  </a>`
+                                        }
+                                        if (innerItem.length >= 15) {
+                                            infos += '<br><hr>';
+                                        }
+                                    })
+                                }
+                                online += `${infos}`
+                            });
+
+                            $.each(xunlei_link, function (j, innerItem) {
+                                let infos = '';
+                                if (typeof innerItem == 'object') {
+                                    for (let link in innerItem) {
+                                        let name = Object.keys(innerItem[link]);
+                                        let value = innerItem[link][name];
+                                        infos += `<a href="${value}" target="_blank" class="btn btn-sm btn-danger">
+                                                    <span class="glyphicon glyphicon-expand"></span>${name}
+                                                  </a>`
+                                    }
+                                } else {
+                                    $.each(innerItem, function (k, smallItem) {
+                                        for (let link in smallItem) {
+                                            let name = Object.keys(innerItem[link]);
+                                            let value = innerItem[link][name];
+                                            infos += `<a href="${value}" target="_blank" class="btn btn-sm btn-danger">
+                                                    <span class="glyphicon glyphicon-expand"></span>${name}
+                                                  </a>`
+                                        }
+                                    })
+                                }
+                                xunlei += `${infos}`
+                            });
+                            let update_time = item.update_time;
+                            //update_time = update_time.toString().split('T')[0];
+                            html += `<div class="items">
+                                    <div class="row">
+                                        <h4>${item.title}</h4>
+                                        <h5>
+                                            <span>状态：${item.status}</span> |&nbsp;
+                                            <span>类型： ${item.types}</span> |&nbsp;
+                                            <span>属性：${item.property}</span> |&nbsp;
+                                            <span>区域：${item.area}</span> |&nbsp;
+                                            <span>语言：${item.lang}</span> |&nbsp;
+                                            <span>评分：${item.grade}</span> |&nbsp;
+                                            <span>上映年份：${item.show_time}</span>
+                                        </h5>
+                                        <h5>
+                                            <span>更新时间：${update_time}</span> |&nbsp;
+                                            <span>导演：${item.director}</span> |&nbsp;
+                                            <span>主演：${item.actors}</span>
+                                        </h5>
+                                        <h5 class="info">剧情简介：${item.info}</h5>
+                                        <div class="outer-links">
+                                            <h5>在线播放地址1：</h5>
+                                            <div class="links">${online}</div>
+                                        </div>
+                                        <div class="outer-links">
+                                            <h5>在线播放地址2：</h5>
+                                            <div class="links">${m3u8}</div>
+                                        </div>
+                                        <!--
+                                        <div class="outer-links">
+                                            <h5>迅雷下载链接：</h5>
+                                            <div class="links">${xunlei}</div>
+                                        </div>
+                                        -->
+                                    </div>
+                            </div>`;
+                        });
+                        $('.res-item').html(html)
+                    }
+                },
+                //请求失败，包含具体的错误信息
+                error: function (e) {
+                    console.log(e.code);
+                    console.log(e.data);
+                }
+            });
+            {#$('#keyword').val('');#}
+        }
+
+        $('#search').click(function () {
+            ClickEevent()
+        });
+        // 监听回车事件
+        document.onkeydown = function (event) {
+            if (event && event.keyCode == 13) { //回车键为13
+                ClickEevent();
+            }
+        };
+
+    });
+</script>
+</html>

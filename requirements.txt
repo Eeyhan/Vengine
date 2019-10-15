@@ -1,0 +1,6 @@
+requests
+redis
+pymysql
+django
+django_apscheduler
+djangorestframework
