@@ -2,38 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/bootstrap-3.3.7-dist/css/bootstrap.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <script type="text/javascript" src="/static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
     <title>影擒 - 专业的影视擒拿手</title>
 </head>
 <body>
-<div>
+<div class="box">
     <div class="containers">
         <div class="banner">
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="/">影擒，专业的影视擒拿手</a>
-                    </div>
-
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="desc">本网站只是个影视搜索引擎，仅供个人学习交流，不提供播放功能，播放链接为第三方视频连接，不提供视频资源，资源来自于互联网</li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
+            <div class="nav">
+                <nav class="navbar navbar-default">
+                    <span class="fav">本站不提供视频资源，数据来自互联网</span>
+                </nav>
+            </div>
         </div>
-
-        <div class="content clearfix">
-            <h5>数据由程序智能自动获取，搜索结果不可控，如结果内含广告，请勿轻信，谨防上当受骗</h5>
+        <div class="content clearfix both-css">
+            <span>数据由程序智能自动获取，搜索结果不可控</span> <br>
+            <span>如结果内含广告，请勿轻信，谨防上当受骗</span><br><br>
             <div class="content-inner">
                 <div class="search">
                     <div class="input-group text-center input-group-lg">
@@ -44,8 +35,6 @@
                     </div><!-- /input-group -->
                 </div>
             </div>
-
-
         </div>
         <div class="result ">
             <div>
@@ -55,81 +44,121 @@
 
             </div>
         </div>
-        <!--
-        <div class="footer" id="footer">
-            <div class="footer-inner">
-                <p>
-                    <a href="#" target="_blank">沪网文［2019］xxx-xxx号</a>&nbsp;&nbsp;沪ICP备xxxx号-x&nbsp;&nbsp;
-                    <a href="#" target="_blank">新出网证（沪）字xxx号</a>&nbsp;&nbsp;
 
-                </p>
-            </div>
-        </div>
-        -->
+
     </div>
 
 </div>
 </body>
 <style>
-    body {
-        font-family: "Microsoft YaHei", Arial, "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, sans-serif;
+    @media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+        body {
+            font-size: 2.5rem;
+            width: 568px;
+        }
     }
 
-    .banner {
-        position: fixed;
-        z-index: 99999;
+    @media only screen and (max-device-width: 480px) {
+        body {
+            font-size: 2.5rem;
+            width: 480px;
+        }
+    }
+
+    @media only screen and (min-device-width: 481px) {
+        body {
+            font-size: 2.5rem;
+            width: 481px;
+        }
+    }
+
+    /*6*/
+    @media (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+        body {
+            font-size: 2.5rem;
+            width: 667px;
+        }
+    }
+
+    /*6+*/
+    @media (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+        body {
+            font-size: 2.5rem;
+            width: 736px;
+        }
+    }
+
+    /*魅族*/
+    @media only screen and (min-device-width: 1080px) and (-webkit-min-device-pixel-ratio: 2.5) {
+        body {
+            font-size: 2.5rem;
+            min-width: 1080px;
+        }
+    }
+
+    /*mate7*/
+    @media only screen and (min-device-width: 1080px) and (-webkit-min-device-pixel-ratio: 3) {
+        body {
+            font-size: 2.5rem;
+            min-width: 1080px;
+        }
+    }
+
+    /*其他设备*/
+    @media screen and (max-width: 300px) {
+        body {
+            font-size: 2.5rem;
+            width: 300px;
+        }
+    }
+
+    @media screen and (min-width: 300px) and (max-width: 500px) {
+        body {
+            font-size: 2.5rem;
+            width: 500px;
+        }
+    }
+
+    .box {
         width: 100%;
-        top: 0px;
     }
 
     .containers {
-        position: relative;
-    }
-
-    #footer {
-        width: 100%;
         position: absolute;
-        padding: 30px 0;
-        background: #2e3137;
+        width: 100%;
     }
 
-    .content {
+    .both-css {
+        position: absolute;
         width: 100%;
-        margin-top: 15%;
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 10px 10px;
+        top: 6em;
+    }
+
+    .banner > div {
+        margin: 0 auto;
+        text-align: center;
+        min-height: 10em;
+    }
+
+    .fav {
+        font-size: 1.6rem;
+        color: #5e5e5e;
+        background-color: transparent;
+        padding: 15px 15px;
+        line-height: 3em;
+
+    }
+
+    .content > span {
+        color: #eb9316;
+        font-weight: bold;
     }
 
     .content-inner {
-        text-align: center;
-        width: 620px;
-        margin: 0 auto;
-    }
-
-    .search {
-        padding: 5%;
-        margin: 0 8%;
-    }
-
-    .footer p {
-        color: #999;
-        text-align: center;
-        line-height: 24px;
-    }
-
-    .result {
-        width: 60%;
-        margin: 2% auto;
-        text-align: center;
-    }
-
-    .desc {
-        padding: 15px 15px;
-        color: #f85506;
-    }
-
-    .content > h5 {
-        text-align: center;
-        color: grey;
-        font-weight: bold;
+        margin-top: 2em;
     }
 
     .items h4, .items h5 {
@@ -170,11 +199,13 @@
     .links .btn {
         margin-bottom: 5px;
     }
+
+    .result {
+        padding: 30px;
+        width: 100%
+    }
 </style>
-
 <script type="text/javascript">
-
-
     $(function () {
         var m3u8parse = ['https://www.douban888.com/m3u8.php?url=', 'https://api.927jx.com/vip/?url=', 'http://www.wocao.xyz/index.php?url=', 'http://okjx.cc/?url=', 'http://jx.618g.com/?url=', 'https://www.8090g.cn/?url=', 'http://cn.bjbanshan.cn/jx.php?url=', 'http://v.d9y.net/vip/?url=', 'https://jx.000180.top/jx/?url=', 'https://jx.inpower.cc/?url='];
 
@@ -183,16 +214,18 @@
             var temp_str = values.toString().split('://');
             var str3 = temp_str[0];
             var str = temp_str[1];
-            str2 += str3 + '://'
-            for (i = 0; i < str.length; i++) {
-                if (str.charCodeAt(i) == '47') str2 += '/';
-                else if (str.charCodeAt(i) == '63') str2 += '?';
-                else if (str.charCodeAt(i) == '38') str2 += '&';
-                else if (str.charCodeAt(i) == '61') str2 += '=';
-                else if (str.charCodeAt(i) == '58') str2 += ':';
-                else str2 += '%' + str.charCodeAt(i).toString(16);
+            str2 += str3 + '://';
+            if (str) {
+                for (i = 0; i < str.length; i++) {
+                    if (str.charCodeAt(i) == '47') str2 += '/';
+                    else if (str.charCodeAt(i) == '63') str2 += '?';
+                    else if (str.charCodeAt(i) == '38') str2 += '&';
+                    else if (str.charCodeAt(i) == '61') str2 += '=';
+                    else if (str.charCodeAt(i) == '58') str2 += ':';
+                    else str2 += '%' + str.charCodeAt(i).toString(16);
+                }
+                return str2
             }
-            return str2
         }
 
         function ClickEevent() {
@@ -312,7 +345,8 @@
                                 xunlei += `${infos}`
                             });
                             let update_time = item.update_time;
-                            //update_time = update_time.toString().split('T')[0];
+                            update_time = update_time.toString().split('T')[0];
+                            update_time = update_time.toString().split(' ')[0];
                             html += `<div class="items">
                                     <div class="row">
                                         <h4>${item.title}</h4>
@@ -357,7 +391,7 @@
                     console.log(e.data);
                 }
             });
-            {#$('#keyword').val('');#}
+            //$('#keyword').val('');
         }
 
         $('#search').click(function () {
@@ -369,7 +403,6 @@
                 ClickEevent();
             }
         };
-
     });
 </script>
 </html>
