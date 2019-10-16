@@ -209,6 +209,16 @@
         margin-bottom: 5px;
     }
 
+    .res-item {
+        text-align: center;
+    }
+
+    .nodata{
+        color: #ec5116;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
     .result {
         padding: 30px;
         width: 100%
@@ -251,7 +261,7 @@
                 //请求成功
                 success: function (result) {
                     if (result.code == 202) {
-                        let html = `<span style="color:red;">${result.data}</span>`;
+                        let html = `<span class="nodata">${result.data}</span><br><span class="nodata">请明天再来搜索，数据24小时定期更新</span>`;
                         $('.res-item').html(html)
                     } else {
                         let html = '';
