@@ -135,3 +135,5 @@ STATICFILES_DIRS = [
 
 # redis数据库连接池
 POOL = redis.ConnectionPool(host='127.0.0.1', max_connections=100, decode_responses=True, db=4)
+
+ALLOWED_HOSTS = ["*"]

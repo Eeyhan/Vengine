@@ -6,6 +6,8 @@ from app1.serializers import VideoSerializer
 from app1.models import VideoInfo
 from apscheduler.schedulers.background import BackgroundScheduler
 from django.conf import settings
+from utils.throttles import MyThrottle
+from utils.auther import MyAuth
 import redis
 from django_apscheduler.jobstores import DjangoJobStore, register_events, register_job
 
@@ -21,7 +23,7 @@ try:
                   second='00')  # 定时执行：这里定时为周一到周日每天早上01：30执行一次
     def time_task():
         """定时的任务逻辑:你要定时执行的任务"""
-        async_search_func()
+        pass
 
 
     register_events(scheduler)
@@ -33,30 +35,8 @@ except Exception as e:
 
 
 def async_search_func():
-    """多个任务爬取"""
-    conn = redis.Redis(connection_pool=settings.POOL)
-    search_args = conn.smembers('search_args')
-    # 检测是否已有值
-    if search_args:
-        for args in search_args:
-
-            """爬取部分，自行补充"""
-            result = ''
-
-            # 存入mysql
-            if result:
-                result_objs = []
-                for item in result:
-                    v_obj = VideoInfo(title=item['m_title'], status=item['m_status'], property=item['m_property'],
-                                      types=item['m_type'], area=item['m_area'], lang=item['lang'],
-                                      director=item['director'], grade=item['m_grade'], actors=item['actors'],
-                                      update_time=item['m_update_time'], show_time=item['show_time'], info=item['info'],
-                                      m3u8_link=item['m3u8_link'], online_link=item['online_link'],
-                                      xunlei_link=item['xunlei_link'],
-                                      )
-                    result_objs.append(v_obj)
-                VideoInfo.objects.bulk_create(result_objs)
-                conn.srem('search_args', args)
+    """任务"""
+    pass
 
 
 def save_orm(data):
@@ -87,6 +67,8 @@ def index(request):
 
 class VideoView(APIView):
     """影视类"""
+    authentication_classes = [MyAuth, ]
+    throttle_classes = [MyThrottle, ]
 
     def get(self, request):
         return Response('test')
@@ -94,18 +76,20 @@ class VideoView(APIView):
     def post(self, request):
         res = BaseResponse()
         name = request.data.get('name')
+        # print(request.user)
         if name:
-            all_obj = VideoInfo.objects.filter(title__contains=name).all().extra(
+            all_obj = VideoInfo.objects.filter(title__contains=name).all().distinct().extra(
                 select={'_has1': 'instr(title, "花絮")'}).extra(
-                select={'_has2': 'instr(title, "记录")'}).order_by('_has1', '_has2')
+                select={'_has2': 'instr(title, "记录")'}).order_by('_has1', '_has2')[:5]
             if all_obj:
                 serializer_obj = VideoSerializer(all_obj, many=True)
                 res.data = serializer_obj.data
                 res.code = 200
                 return Response(res.dict)
             else:
+                # # 即时爬取数据
                 # 记录搜索词汇，设定时间周期爬取
-                res.data = '您搜索的影视词汇 “%s” 目前暂无数据，请明天再来搜索，数据24小时定期更新' % name
+                res.data = '很抱歉，您搜索的“攀登者” 目前暂无数据' % name
                 res.code = 202
                 save_redis(name)
                 return Response(res.dict)

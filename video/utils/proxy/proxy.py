@@ -22,7 +22,7 @@ import os
 import sys
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-from proxy.config import PROXY_URLS, USER_AGENT, TEST_PROXY_URLS, POOL
+from utils.proxy.config import PROXY_URLS, USER_AGENT, TEST_PROXY_URLS, POOL
 
 
 class BaseProxy(object):
@@ -1270,10 +1270,10 @@ if __name__ == '__main__':
     start = time.time()
 
     # 第一种，使用协程，速度稍微慢些，但是占用资源小
-    main_gevent()
+    # main_gevent()
 
     # 第二种，使用线程池，速度最快
-    # res = main_thread_pool()
+    res = main_thread_pool()
 
     # 第三种，使用线程池+异步io，综合性更强，推荐该方法
     # res2 = main_thread_pool_asynicio()

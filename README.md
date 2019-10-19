@@ -32,11 +32,30 @@
 
 ## 更新进度
 
+### 2019/10/19更新
+
+* 搜索结果加密
+* 搜索结果智能排序：
+	+ 花絮，记录片放到最后
+* 云服务器只开启指定端口
+* 更新前端页面，兼容尽可能多的手机页面
+* 前端代码js混淆加密
+* 开启dehug拦截
+* 后端只开放post请求
+* 数据过多时，设置返回量，最多5条
+* 一定程度防止爬虫机制：ip,UA 
+	+ 识别UA特征码
+	+ 禁止国外ip访问（减少代理ip可行性）
+* 智能去除无用的搜索关键词
+* 支持ssl加密访问
+* 后端加频率限制，请求头限制	
+	+ 同一个用户，2秒内间隙请求超过3次以上，封停1小时	
+	+ 默认每个用户每天搜索总数15次
+
 ### 2019/10/16号更新：
 
 * 项目已上线，访问地址 https://eeyhan.github.io
-
-
+* 支持异步加载
 
 ## 使用步骤
 
@@ -48,6 +67,7 @@
    
 ## 启动界面
 
+![影擒，专业的影视擒拿手](https://raw.githubusercontent.com/Eeyhan/pictures/master/video0.jpg)
 ![影擒，专业的影视擒拿手](https://raw.githubusercontent.com/Eeyhan/pictures/master/video1.jpg)
 ![影擒，专业的影视擒拿手](https://raw.githubusercontent.com/Eeyhan/pictures/master/video2.jpg)
 ![影擒，专业的影视擒拿手](https://raw.githubusercontent.com/Eeyhan/pictures/master/video3.jpg)
