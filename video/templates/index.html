@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="/static/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
     <script type="text/javascript" src="/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <title>影擒</title>
@@ -18,8 +18,8 @@
         <div class="banner">
             <div class="nav">
                 <nav class="navbar navbar-default">
-                    <p class="first"><img alt="Brand" src="./favicon.ico"><span class="fav">影擒，专业的影视擒拿手</span></p>
-                    <p class="second"><span class="fav ">请不要过于频繁的搜索</span></p>
+                    <p class="first"><img alt="Brand" src="/static/favicon.ico"><span class="fav">影擒，专业的影视擒拿手</span></p>
+                    <p class="second"><span class="fav ">请勿过频操作，否则禁止访问</span></p>
                 </nav>
             </div>
         </div>
@@ -27,23 +27,26 @@
             <div class="desc">
                 <div class="content-inner">
                     <p class="fav_color">
-                        清爽，无广告<br>
+                        独特，开源，清爽<br>
                         24小时定期更新影视数据<br>
                         丰富资源，你想看的视频这里都有<br>
                         不提供播放功能，仅收录第三方在线播放链接<br>
-                        不提供视频资源，所有数据均来自于互联网<br>
+                        不提供视频资源，所有数据均来源于互联网<br>
                         不提供非法视频，使用请遵守相关法纪<br>
                         您能发现这个网站，属实我的荣幸<br>
                         免费使用，不玩套路<br>
                         <br>
                     </p>
                 </div>
-                <button type="button" class="btn btn-default" id='tosearach'>开始探索</button>
+
+                <button type="button" class="btn btn-default" id='sourcecode'>网站源码</button>
+                <button type="button" class="btn btn-danger" id='tosearach'>开始搜索</button>
             </div>
 
             <div class="mains ">
                 <span>数据由程序智能自动获取，搜索结果不可控</span><br>
-                <span>如结果内含广告，请勿轻信，谨防上当受骗</span><br><br>
+                <span>如结果内含广告，请勿轻信，谨防上当受骗</span><br>
+                <span style="letter-spacing: 0.039rem;">正常情况3秒左右会有结果，请您耐心等待</span><br><br>
                 <div class="content-inner">
                     <div class="search">
                         <div class="input-group text-center input-group-lg">
@@ -72,463 +75,9 @@
 </div>
 </body>
 <style>
-
-    @media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
-        body {
-            font-size: 2.5rem;
-            width: 568px;
-        }
-    }
-
-    @media only screen and (max-device-width: 480px) {
-        body {
-            font-size: 2.5rem;
-            width: 480px;
-        }
-    }
-
-    @media only screen and (min-device-width: 481px) {
-        body {
-            font-size: 2.5rem;
-            width: 481px;
-        }
-    }
-
-    /*6*/
-    @media (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
-        body {
-            font-size: 2.5rem;
-            width: 667px;
-        }
-    }
-
-    /*6+*/
-    @media (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
-        body {
-            font-size: 2.5rem;
-            width: 736px;
-        }
-    }
-
-    /*魅族*/
-    @media only screen and (min-device-width: 1080px) and (-webkit-min-device-pixel-ratio: 2.5) {
-        body {
-            font-size: 2.5rem;
-            min-width: 1080px;
-        }
-    }
-
-    /*mate7*/
-    @media only screen and (min-device-width: 1080px) and (-webkit-min-device-pixel-ratio: 3) {
-        body {
-            font-size: 2.5rem;
-            min-width: 1080px;
-        }
-    }
-
-    /*其他设备*/
-    @media screen and (max-width: 300px) {
-        body {
-            font-size: 2.5rem;
-            width: 300px;
-        }
-    }
-
-    @media screen and (min-width: 300px) and (max-width: 500px) {
-        body {
-            font-size: 2.5rem;
-            width: 500px;
-        }
-    }
-
-    .box {
-        width: 100%;
-    }
-
-    .containers {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-image: linear-gradient(#ef7a7b, #515eed);
-    }
-
-    .both-css {
-        position: absolute;
-		width: 100%;
-		text-align: center;
-		font-size: 1.5rem;
-		padding: 1rem 1rem;
-		top: 3rem;
-    }
-
-    .banner > div {
-        margin: 0 auto;
-        text-align: center;
-        min-height: 10em;
-    }
-
-    .fav_color {
-        color: white !important;
-        font-size: 1.6rem;
-        padding: 1.2rem 0;
-        line-height: 2.4em;
-    }
-
-    .fav {
-        font-size: 1.6rem;
-        color: #5e5e5e;
-        background-color: transparent;
-        padding: 15px 4px;
-        width: 100%;
-
-    }
-
-    .navfav {
-        font-size: 1.6rem;
-        color: #5e5e5e;
-        background-color: transparent;
-        padding: 15px 15px;
-        width: 100%;
-    }
-
-    .footer {
-        display: flex;
-    }
-
-    .navbar {
-        position: fixed;
-        width: 100%;
-        z-index: 9999;
-        border: 0px;
-    }
-
-    .mains > span {
-        color: #eb9316;
-        font-weight: bold;
-    }
-
-    .content-inner {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-    }
-
-    .items h4, .items h5 {
-        text-align: left;
-    }
-
-    .btn {
-        margin: 0 2px;
-    }
-
-    .btn a {
-        color: white;
-    }
-
-    .row {
-        border: 1px solid #f1f1f1;
-        padding: 2%;
-        box-shadow: 0px 0px 5px 1px #cdcdcd;
-        border-radius: 8px;
-        margin-bottom: 4%;
-    }
-
-    .info {
-        margin: 3% 0;
-        letter-spacing: 0.1em;
-    }
-
-    .outer-links {
-        position: relative;
-        padding: 1rem 0;
-    }
-
-    .links {
-        top: 0px;
-        left: 14%;
-        text-align: left;
-    }
-
-    .links .btn {
-        margin-bottom: 5px;
-    }
-
-    .res-item {
-        text-align: center;
-    }
-
-    .nodata {
-        color: #ec5116;
-        font-size: 1.5rem;
-        font-weight: bold;
-    }
-
-    .result {
-        padding: 30px;
-        width: 100%
-    }
-
-    .gap {
-        padding-top: 2rem;
-        border-top: 2px dashed #d3c4c1;
-    }
-
-    .mains {
-        display: none;
-        /*opacity: 0;*/
-        padding-top: 2rem;
-    }
-    .second{
-        display: none;
-    }
-	.desc .btn{
-		margin-top: -4rem;
-	}
-	.navbar{
-		min-height:0px !important
-	}
-
-
+    @media (device-height:568px) and (-webkit-min-device-pixel-ratio:2){body{font-size:2.5rem;width:568px;}}@media only screen and (max-device-width:480px){body{font-size:2.5rem;width:480px;}}@media only screen and (min-device-width:481px){body{font-size:2.5rem;width:481px;}}@media (min-device-width:375px) and (max-device-width:667px) and (-webkit-min-device-pixel-ratio:2){body{font-size:2.5rem;width:667px;}}@media (min-device-width:414px) and (max-device-width:736px) and (-webkit-min-device-pixel-ratio:3){body{font-size:2.5rem;width:736px;}}@media only screen and (min-device-width:1080px) and (-webkit-min-device-pixel-ratio:2.5){body{font-size:2.5rem;min-width:1080px;}}@media only screen and (min-device-width:1080px) and (-webkit-min-device-pixel-ratio:3){body{font-size:2.5rem;min-width:1080px;}}@media screen and (max-width:300px){body{font-size:2.5rem;width:300px;}}@media screen and (min-width:300px) and (max-width:500px){body{font-size:2.5rem;width:500px;}}.box{width:100%;}.containers{position:absolute;width:100%;height:100%;background-image:linear-gradient(#ef7a7b,#515eed);}.both-css{position:absolute;width:100%;text-align:center;font-size:1.5rem;padding:1rem 1rem;top:3rem;}.banner > div{margin:0 auto;text-align:center;min-height:10em;}.fav_color{color:white !important;font-size:1.6rem;padding:1.2rem 0;line-height:2.4em;}.fav{font-size:1.6rem;color:#5e5e5e;background-color:transparent;padding:15px 4px;width:100%;}.navfav{font-size:1.6rem;color:#5e5e5e;background-color:transparent;padding:15px 15px;width:100%;}.footer{display:flex;}.navbar{position:fixed;width:100%;z-index:9999;border:0px;}.mains > span{color:#eb9316;font-weight:bold;}.content-inner{margin-top:1rem;margin-bottom:1rem;}.items h4,.items h5{text-align:left;}.btn{margin:0 2px;}.btn a{color:white;}.row{border:1px solid #f1f1f1;padding:2%;box-shadow:0px 0px 5px 1px #cdcdcd;border-radius:8px;margin-bottom:4%;}.info{margin:3% 0;letter-spacing:0.1em;}.outer-links{position:relative;padding:1rem 0;}.links{top:0px;left:14%;text-align:left;}.links .btn{margin-bottom:5px;}.res-item{text-align:center;}.nodata{color:#ec5116;font-size:1.5rem;font-weight:bold;}.result{padding:30px;width:100%}.gap{padding-top:2rem;border-top:2px dashed #d3c4c1;}.mains{display:none;padding-top:2rem;}.second{display:none;}.desc .btn{margin-top:-4rem;}.navbar{min-height:0px !important}
 </style>
 <script type="text/javascript">
-    var check = (function () {
-        var callbacks = [], timeLimit = 50, open = false;
-        setInterval(loop, 1);
-        return {
-            addListener: function (fn) {
-                callbacks.push(fn);
-            },
-            cancleListenr: function (fn) {
-                callbacks = callbacks.filter(function (v) {
-                    return v !== fn;
-                });
-            }
-        };
-
-        function loop() {
-            var startTime = new Date();
-            debugger;
-            if (new Date() - startTime > timeLimit) {
-                if (!open) {
-                    callbacks.forEach(function (fn) {
-                        fn.call(null);
-                    });
-                }
-                open = true;
-            } else {
-                open = false;
-            }
-        }
-    })();
-
-    check.addListener(function () {
-    });
-
-    $('#tosearach').click(function () {
-        $('.desc').css('display', 'none');
-        $('.containers').css('background-image', 'none');
-        $('.mains').css('display', 'block');
-        $('.second').css('display', 'block');
-        $('.first').css('display', 'none');
-    });
-
-    $(function () {
-        var m3u8parse = ['https://www.douban888.com/m3u8.php?url=', 'https://api.927jx.com/vip/?url=', 'http://www.wocao.xyz/index.php?url=', 'http://jx.618g.com/?url=', 'https://www.8090g.cn/?url=', 'http://cn.bjbanshan.cn/jx.php?url=', 'http://v.d9y.net/vip/?url=', 'https://jx.000180.top/jx/?url=', 'https://jx.inpower.cc/?url='];
-
-
-        function urlCrypt(values) {
-            var str2 = '';
-            var temp_str = values.toString().split('://');
-            var str3 = temp_str[0];
-            var str = temp_str[1];
-            str2 += str3 + '://';
-            if (str) {
-                for (i = 0; i < str.length; i++) {
-                    if (str.charCodeAt(i) == '47') str2 += '/';
-                    else if (str.charCodeAt(i) == '63') str2 += '?';
-                    else if (str.charCodeAt(i) == '38') str2 += '&';
-                    else if (str.charCodeAt(i) == '61') str2 += '=';
-                    else if (str.charCodeAt(i) == '58') str2 += ':';
-                    else str2 += '%' + str.charCodeAt(i).toString(16);
-                }
-                return str2
-            }
-        }
-
-        function ClickEevent() {
-            var keyword = $('#keyword').val();
-            //
-            $.ajax({
-                //请求方式
-                type: "POST",
-                url: "/api/v1/video",
-                //数据，json字符串
-                data: {
-                    'name': keyword
-                },
-                //请求成功
-                success: function (result) {
-                    if (result.code == 202) {
-                        let html = `<span class="nodata">${result.data}</span><br>`;
-                        $('.res-item').html(html)
-                    } else {
-                        let html = '';
-                        $.each(result.data, function (i, item) {
-                            var m3u8 = '';
-                            var online = '';
-                            var xunlei = '';
-                            var m3u8_link = eval(item.m3u8_link);
-                            var online_link = eval(item.online_link);
-                            var xunlei_link = eval(item.xunlei_link);
-                            $.each(m3u8_link, function (j, innerItem) {
-                                let infos = '';
-                                if (typeof innerItem == 'object') {
-                                    for (let link in innerItem) {
-                                        let name = Object.keys(innerItem[link]);
-                                        let value = innerItem[link][name];
-                                        let rand = Math.floor((Math.random() * m3u8parse.length));
-                                        let m3u8_url = m3u8parse[rand];
-                                        value = m3u8_url + value;
-                                        infos += `<a href="${value}" target="_blank" class="btn btn-sm btn-danger">
-                                                    <span class="glyphicon glyphicon-expand"></span>${name}
-                                                  </a>`
-                                    }
-                                    if (innerItem.length >= 15) {
-                                        infos += '<br><hr>';
-                                    }
-                                } else {
-                                    $.each(innerItem, function (k, smallItem) {
-                                        for (let link in smallItem) {
-                                            let name = Object.keys(innerItem[link]);
-                                            let value = innerItem[link][name];
-                                            let rand = Math.floor((Math.random() * m3u8parse.length));
-                                            let m3u8_url = m3u8parse[rand];
-                                            value = m3u8_url + value;
-                                            infos += `<a href="${value}" target="_blank" class="btn btn-sm btn-danger">
-                                                    <span class="glyphicon glyphicon-expand"></span>${name}
-                                                  </a>`
-                                        }
-                                        if (innerItem.length >= 15) {
-                                            infos += '<br><hr>';
-                                        }
-                                    })
-                                }
-                                m3u8 += `${infos}`
-                            });
-
-                            $.each(online_link, function (j, innerItem) {
-                                let infos = '';
-                                if (typeof innerItem == 'object') {
-                                    for (let link in innerItem) {
-                                        let name = Object.keys(innerItem[link]);
-                                        let value = innerItem[link][name];
-                                        value = urlCrypt(value);
-                                        infos += `<a href="${value}" target="_blank" class="btn btn-sm btn-danger">
-                                                    <span class="glyphicon glyphicon-expand"></span>${name}
-                                                  </a>`
-                                    }
-                                    if (innerItem.length >= 15) {
-                                        infos += '<br><hr>';
-                                    }
-                                } else {
-                                    $.each(innerItem, function (k, smallItem) {
-                                        for (let link in smallItem) {
-                                            let name = Object.keys(innerItem[link]);
-                                            let value = innerItem[link][name];
-                                            value = urlCrypt(value);
-                                            infos += `<a href="${value}" target="_blank" class="btn btn-sm btn-danger">
-                                                    <span class="glyphicon glyphicon-expand"></span>${name}
-                                                  </a>`
-                                        }
-                                        if (innerItem.length >= 15) {
-                                            infos += '<br><hr>';
-                                        }
-                                    })
-                                }
-                                online += `${infos}`
-                            });
-
-                            $.each(xunlei_link, function (j, innerItem) {
-                                let infos = '';
-                                if (typeof innerItem == 'object') {
-                                    for (let link in innerItem) {
-                                        let name = Object.keys(innerItem[link]);
-                                        let value = innerItem[link][name];
-                                        infos += `<a href="${value}" target="_blank" class="btn btn-sm btn-danger">
-                                                    <span class="glyphicon glyphicon-expand"></span>${name}
-                                                  </a>`
-                                    }
-                                } else {
-                                    $.each(innerItem, function (k, smallItem) {
-                                        for (let link in smallItem) {
-                                            let name = Object.keys(innerItem[link]);
-                                            let value = innerItem[link][name];
-                                            infos += `<a href="${value}" target="_blank" class="btn btn-sm btn-danger">
-                                                    <span class="glyphicon glyphicon-expand"></span>${name}
-                                                  </a>`
-                                        }
-                                    })
-                                }
-                                xunlei += `${infos}`
-                            });
-                            let update_time = item.update_time;
-                            update_time = update_time.toString().split('T')[0];
-                            update_time = update_time.toString().split(' ')[0];
-                            html += `<div class="items">
-                                    <div class="row">
-                                        <h4>${item.title}</h4>
-                                        <h5>
-                                            <span>状态：${item.status}</span> |&nbsp;
-                                            <span>类型： ${item.types}</span> |&nbsp;
-                                            <span>属性：${item.property}</span> |&nbsp;
-                                            <span>区域：${item.area}</span> |&nbsp;
-                                            <span>语言：${item.lang}</span> |&nbsp;
-                                            <span>评分：${item.grade}</span> |&nbsp;
-                                            <span>上映年份：${item.show_time}</span>
-                                        </h5>
-                                        <h5>
-                                            <span>更新时间：${update_time}</span> |&nbsp;
-                                            <span>导演：${item.director}</span> |&nbsp;
-                                            <span>主演：${item.actors}</span>
-                                        </h5>
-                                        <h5 class="info">剧情简介：${item.info}</h5>
-                                        <div class="outer-links">
-                                            <h5>在线播放地址1：</h5>
-                                            <div class="links">${online}</div>
-                                        </div>
-                                        <div class="outer-links">
-                                            <h5 class="gap">在线播放地址2：</h5>
-                                            <div class="links">${m3u8}</div>
-                                        </div>
-                                        <!--
-                                        <div class="outer-links">
-                                            <h5  class="gap">迅雷下载链接：</h5>
-                                            <div class="links">${xunlei}</div>
-                                        </div>
-                                        -->
-                                    </div>
-                            </div>`;
-                        });
-                        $('.res-item').html(html)
-                    }
-                },
-                //请求失败，包含具体的错误信息
-                error: function (e) {
-                    console.log(e.code);
-                    console.log(e.data);
-                }
-            });
-            //$('#keyword').val('');
-        }
-
-        $('#search').click(function () {
-            ClickEevent()
-        });
-        // 监听回车事件
-        document.onkeydown = function (event) {
-            if (event && event.keyCode == 13) { //回车键为13
-                ClickEevent();
-            }
-        };
-    });
+    ;eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('l 1F=(7(){l S=[],1w=2L,R=1L;2z(1H,1);12{1G:7(z){S.2s(z)},2r:7(z){S=S.2q(7(v){12 v!==z})}};7 1H(){l 1v=1E 1D();2m;b(1E 1D()-1v>1w){b(!R){S.2l(7(z){z.2k(2j)})}R=2i}n{R=1L}}})();1F.1G(7(){});$(\'#2h\').19(7(){$(\'.1N\').Q(\'U\',\'1g\');$(\'.2f\').Q(\'2c-2b\',\'1g\');$(\'.2a\').Q(\'U\',\'1A\');$(\'.28\').Q(\'U\',\'1A\');$(\'.27\').Q(\'U\',\'1g\')});$(\'#26\').19(7(){25.R(\'G://23.14/22/21\',\'20\')});$(7(){l O=[\'G://1d.1Z.14/Y.1j?q=\',\'G://1z.1X.14/1y/?q=\',\'Z://1d.1W.1V/1U.1j?q=\',\'Z://N.1T.14/?q=\',\'G://1d.1S.1b/?q=\',\'Z://1b.1R.1b/N.1j?q=\',\'Z://v.1Q.1P/1y/?q=\',\'G://N.2O.2K/N/?q=\',\'G://N.2J.2o/?q=\'];7 1h(1i){l s=\'\';b(1i){l 1k=1i.10().1l(\'://\');l 1x=1k[0];l r=1k[1];s+=1x+\'://\';b(r){w(i=0;i<r.t;i++){b(r.J(i)==\'2e\')s+=\'/\';n b(r.J(i)==\'1Y\')s+=\'?\';n b(r.J(i)==\'29\')s+=\'&\';n b(r.J(i)==\'2g\')s+=\'=\';n b(r.J(i)==\'2n\')s+=\':\';n s+=\'%\'+r.J(i).10(16)}12 s}}n{12\'#\'}}7 1u(){l 1a=$(\'#1a\').2d();$(\'.18-9\').m(\'\');$.2p({2t:"2u",q:"/1z/2x/2A",1f:{\'c\':1a},2M:7(W){b(W.2Y==1O){4 m=`<3 6="P">${W.1f}</3><x><3 6="P">数据24小时更新，请明天再来搜索</3>`;$(\'.18-9\').m(m)}n{4 m=\'\';$.y(W.1f,7(i,9){l Y=\'\';l 1r=\'\';l 1q=\'\';l 1o=1n(9.1o);l 1m=1n(9.1m);l 1e=1n(9.1e);$.y(1o,7(j,5){4 g=\'\';b(1t 5==\'1p\'){w(4 f E 5){4 c=D.H(5[f]);4 8=5[f][c];4 17=V.1B((V.1C()*O.t));4 X=O[17];8=X+8;g+=`<a I="${8}"F="C"6="d d-A d-M"><3 6="p p-K"></3>${c}</a>`}b(5.t>=15){g+=\'<x><11>\'}}n{$.y(5,7(k,B){w(4 f E B){4 c=D.H(5[f]);4 8=5[f][c];4 17=V.1B((V.1C()*O.t));4 X=O[17];8=X+8;g+=`<a I="${8}"F="C"6="d d-A d-M"><3 6="p p-K"></3>${c}</a>`}b(5.t>=15){g+=\'<x><11>\'}})}Y+=`${g}`});$.y(1m,7(j,5){4 g=\'\';b(1t 5==\'1p\'){w(4 f E 5){4 c=D.H(5[f]);4 8=5[f][c];8=1h(8);g+=`<a I="${8}"F="C"6="d d-A d-M"><3 6="p p-K"></3>${c}</a>`}b(5.t>=15){g+=\'<x><11>\'}}n{$.y(5,7(k,B){w(4 f E B){4 c=D.H(5[f]);4 8=5[f][c];8=1h(8);g+=`<a I="${8}"F="C"6="d d-A d-M"><3 6="p p-K"></3>${c}</a>`}b(5.t>=15){g+=\'<x><11>\'}})}1r+=`${g}`});$.y(1e,7(j,5){4 g=\'\';b(1t 5==\'1p\'){w(4 f E 5){4 c=D.H(5[f]);4 8=5[f][c];g+=`<a I="${8}"F="C"6="d d-A d-M"><3 6="p p-K"></3>${c}</a>`}}n{$.y(5,7(k,B){w(4 f E B){4 c=D.H(5[f]);4 8=5[f][c];g+=`<a I="${8}"F="C"6="d d-A d-M"><3 6="p p-K"></3>${c}</a>`}})}1q+=`${g}`});4 u=9.u;u=u.10().1l(\'T\')[0];u=u.10().1l(\' \')[0];m+=`<h 6="2v"><h 6="2w"><1I>${9.2y}</1I><o><3>状态：${9.1J}</3>|<3>类型：${9.2B}</3>|<3>属性：${9.2C}</3>|<3>区域：${9.2D}</3>|<3>语言：${9.2E}</3>|<3>评分：${9.2F}</3>|<3>上映年份：${9.2G}</3></o><o><3>更新时间：${u}</3>|<3>导演：${9.2H}</3>|<3>主演：${9.2I}</3></o><o 6="1K">剧情简介：${9.1K}</o><h 6="1s-L"><o>在线播放地址1：</o><h 6="L">${1r}</h></h><h 6="1s-L"><o 6="1M">在线播放地址2：</o><h 6="L">${Y}</h></h><!--<h 6="1s-L"><o 6="1M">迅雷下载链接：</o><h 6="L">${1q}</h></h>--></h></h>`});$(\'.18-9\').m(m)}},2N:7(e){4 m=\'\';b(e.1J==2P){m+=`<3 6="P">您的操作异常，已封禁1小时</3><x>`}n{m+=`<3 6="P">正在申请合法的2Q证书，目前只有以下访问正常</3><x><3 6="P">如：2R，2S系，2T，夸克，欧朋，2U</3>`}$(\'.18-9\').m(m)}})}$(\'#2V\').19(7(){1u()});2W.2X=7(1c){b(1c&&1c.2Z==13){1u()}}});',62,186,'|||span|let|innerItem|class|function|value|item||if|name|btn||link|infos|div||||var|html|else|h5|glyphicon|url|str|str2|length|update_time||for|br|each|fn|sm|smallItem|_0|Object|in|target|https|keys|href|charCodeAt|expand|links|danger|jx|m3u8parse|nodata|css|open|callbacks||display|Math|result|m3u8_url|m3u8|http|toString|hr|return||com|||rand|res|click|keyword|cn|event|www|xunlei_link|data|none|urlCrypt|values|php|temp_str|split|online_link|eval|m3u8_link|object|xunlei|online|outer|typeof|ClickEevent|startTime|timeLimit|str3|vip|api|block|floor|random|Date|new|check|addListener|loop|h4|status|info|false|gap|desc|202|net|d9y|bjbanshan|8090g|618g|index|xyz|wocao|927jx|63|douban888|_1|Vengine|Eeyhan|github||window|sourcecode|first|second|38|mains|image|background|val|47|containers|61|tosearach|true|null|call|forEach|debugger|58|cc|ajax|filter|cancleListenr|push|type|POST|items|row|v1|title|setInterval|video|types|property|area|lang|grade|show_time|director|actors|inpower|top|50|success|error|000180|429|ssl|via|360|UC|2345|search|document|onkeydown|code|keyCode'.split('|'),0,{}));
 </script>
 </html>
